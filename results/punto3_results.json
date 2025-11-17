@@ -1,0 +1,122 @@
+[
+  {
+    "model_name": "xlm-roberta-large",
+    "model_checkpoint": "FacebookAI/xlm-roberta-large",
+    "batch_size": 4,
+    "training_time_minutes": 18.01656189362208,
+    "num_epochs": 10,
+    "learning_rate": 2e-05,
+    "max_length": 256,
+    "test_accuracy": 0.391304347826087,
+    "test_f1": 0.22010869565217392,
+    "test_precision": 0.15311909262759926,
+    "test_recall": 0.391304347826087,
+    "test_loss": 1.1036818027496338,
+    "confusion_matrix": [
+      [
+        567,
+        0,
+        0
+      ],
+      [
+        463,
+        0,
+        0
+      ],
+      [
+        419,
+        0,
+        0
+      ]
+    ],
+    "model_path": "./models/punto3/batch_size_4/",
+    "num_classes": 3,
+    "class_labels": {
+      "N": 0,
+      "NEU": 1,
+      "P": 2
+    },
+    "timestamp": "2025-11-17T15:55:02.073521",
+    "experiment_name": "batch_size_4"
+  },
+  {
+    "model_name": "xlm-roberta-large",
+    "model_checkpoint": "FacebookAI/xlm-roberta-large",
+    "batch_size": 8,
+    "training_time_minutes": 24.9455326517423,
+    "num_epochs": 10,
+    "learning_rate": 2e-05,
+    "max_length": 256,
+    "test_accuracy": 0.6887508626639062,
+    "test_f1": 0.6876174522617454,
+    "test_precision": 0.6873512611027397,
+    "test_recall": 0.6887508626639062,
+    "test_loss": 1.3850969076156616,
+    "confusion_matrix": [
+      [
+        416,
+        121,
+        30
+      ],
+      [
+        109,
+        257,
+        97
+      ],
+      [
+        27,
+        67,
+        325
+      ]
+    ],
+    "model_path": "./models/punto3/batch_size_8/",
+    "num_classes": 3,
+    "class_labels": {
+      "N": 0,
+      "NEU": 1,
+      "P": 2
+    },
+    "timestamp": "2025-11-17T16:20:07.683844",
+    "experiment_name": "batch_size_8"
+  },
+  {
+    "model_name": "xlm-roberta-large",
+    "model_checkpoint": "FacebookAI/xlm-roberta-large",
+    "batch_size": 16,
+    "training_time_minutes": 8.151079344749451,
+    "num_epochs": 10,
+    "learning_rate": 2e-05,
+    "max_length": 256,
+    "test_accuracy": 0.3195307108350587,
+    "test_f1": 0.154751798239155,
+    "test_precision": 0.10209987516675788,
+    "test_recall": 0.3195307108350587,
+    "test_loss": 1.0996609926223755,
+    "confusion_matrix": [
+      [
+        0,
+        567,
+        0
+      ],
+      [
+        0,
+        463,
+        0
+      ],
+      [
+        0,
+        419,
+        0
+      ]
+    ],
+    "model_path": "./models/punto3/batch_size_16/",
+    "num_classes": 3,
+    "class_labels": {
+      "N": 0,
+      "NEU": 1,
+      "P": 2
+    },
+    "timestamp": "2025-11-17T16:28:25.034155",
+    "experiment_name": "batch_size_16"
+  }
+]
