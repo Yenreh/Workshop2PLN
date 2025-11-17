@@ -19,7 +19,7 @@ conda activate pln_taller2
 ### Instalación de PyTorch para RTX 5070
 
 ```bash
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+pip install --force-reinstall torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu130
 ```
 
 ### Instalación de dependencias

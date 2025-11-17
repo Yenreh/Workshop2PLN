@@ -10,9 +10,10 @@ pandas>=2.0.0
 emoji>=2.8.0
 
 # --- Transformers / HuggingFace ---
-transformers>=4.35.0
+transformers>=4.46.0
 accelerate>=0.24.0
-sentence-transformers>=2.2.0
+sentence-transformers>=3.3.0
+huggingface-hub>=0.26.0
 
 # --- Manejo de PDFs ---
 pymupdf>=1.23.0

@@ -293,3 +293,220 @@ def preprocess_text_parallel(dataset_sample, stop_words, n_workers=None):
     
     print(f"Total de oraciones procesadas: {len(sentences):,}")
     return sentences
+
+
+# ============================================================================
+# FUNCIONES PARA EL PUNTO 2 - EMBEDDINGS DE ORACIONES
+# ============================================================================
+
+def save_embeddings(embeddings, filename, punto):
+    """
+    Guarda embeddings en formato numpy
+    """
+    ensure_directories(punto)
+    cache_dir = f"./input/preprocessed/punto{punto}"
+    os.makedirs(cache_dir, exist_ok=True)
+    
+    filepath = f"{cache_dir}/{filename}.npy"
+    np.save(filepath, embeddings)
+    
+    print(f"Embeddings guardados en: {filepath}")
+    print(f"Shape: {embeddings.shape}")
+    return filepath
+
+
+def load_embeddings(filename, punto):
+    """
+    Carga embeddings desde archivo numpy
+    """
+    cache_dir = f"./input/preprocessed/punto{punto}"
+    filepath = f"{cache_dir}/{filename}.npy"
+    
+    if os.path.exists(filepath):
+        print(f"Cargando embeddings desde: {filepath}")
+        embeddings = np.load(filepath)
+        print(f"Shape: {embeddings.shape}")
+        return embeddings
+    else:
+        print(f"Archivo no encontrado: {filepath}")
+        return None
+
+
+def save_chunks(chunks, filename, punto):
+    """
+    Guarda chunks de texto en formato pickle
+    """
+    ensure_directories(punto)
+    cache_dir = f"./input/preprocessed/punto{punto}"
+    os.makedirs(cache_dir, exist_ok=True)
+    
+    filepath = f"{cache_dir}/{filename}.pkl"
+    with open(filepath, 'wb') as f:
+        pickle.dump(chunks, f, protocol=pickle.HIGHEST_PROTOCOL)
+    
+    print(f"Chunks guardados en: {filepath}")
+    print(f"Total: {len(chunks):,} chunks")
+    return filepath
+
+
+def load_chunks(filename, punto):
+    """
+    Carga chunks desde pickle
+    """
+    cache_dir = f"./input/preprocessed/punto{punto}"
+    filepath = f"{cache_dir}/{filename}.pkl"
+    
+    if os.path.exists(filepath):
+        print(f"Cargando chunks desde: {filepath}")
+        with open(filepath, 'rb') as f:
+            chunks = pickle.load(f)
+        print(f"Cargados {len(chunks):,} chunks")
+        return chunks
+    else:
+        print(f"Cache no encontrado: {filepath}")
+        return None
+
+
+def visualize_pca_comparison(query, search_results, embeddings_by_model, model_key, punto, num_words=100):
+    """
+    Visualiza con PCA la consulta y los fragmentos más similares para comparación
+    """
+    ensure_directories(punto)
+    
+    from sklearn.decomposition import PCA
+    
+    emb_data = embeddings_by_model[model_key]
+    config = emb_data['config']
+    all_embeddings = emb_data['embeddings']
+    
+    top_result = search_results[model_key]['top_chunks'][0]
+    best_chunk_idx = top_result[0]
+    similarity_score = top_result[1]
+    
+    query_embedding = search_results[model_key]['query_embedding']
+    best_chunk_embedding = all_embeddings[best_chunk_idx].reshape(1, -1)
+    
+    combined_embeddings = np.vstack([
+        query_embedding,
+        best_chunk_embedding
+    ])
+    
+    pca = PCA(n_components=2)
+    embeddings_2d = pca.fit_transform(combined_embeddings)
+    
+    plt.figure(figsize=(10, 8))
+    
+    plt.scatter(embeddings_2d[0, 0], embeddings_2d[0, 1], 
+               c='red', s=200, marker='*', label='Query', zorder=3)
+    
+    plt.scatter(embeddings_2d[1, 0], embeddings_2d[1, 1], 
+               c='green', s=200, marker='o', label='Mejor Fragmento', zorder=3)
+    
+    plt.annotate('Query', xy=(embeddings_2d[0, 0], embeddings_2d[0, 1]),
+                xytext=(10, 10), textcoords='offset points', 
+                fontsize=10, fontweight='bold')
+    
+    plt.annotate(f'Fragmento\n(sim: {similarity_score:.3f})', 
+                xy=(embeddings_2d[1, 0], embeddings_2d[1, 1]),
+                xytext=(10, -20), textcoords='offset points', 
+                fontsize=10, fontweight='bold')
+    
+    plt.plot([embeddings_2d[0, 0], embeddings_2d[1, 0]], 
+            [embeddings_2d[0, 1], embeddings_2d[1, 1]], 
+            'b--', alpha=0.5, linewidth=1)
+    
+    plt.title(f'Visualización PCA - {config["name"]}\n'
+             f'Query: "{query[:50]}..."', fontsize=12)
+    plt.xlabel(f'PC1 ({pca.explained_variance_ratio_[0]:.2%})')
+    plt.ylabel(f'PC2 ({pca.explained_variance_ratio_[1]:.2%})')
+    plt.legend()
+    plt.grid(True, alpha=0.3)
+    plt.tight_layout()
+    
+    output_path = f"./output/punto{punto}/{model_key.replace('/', '_')}_pca.png"
+    plt.savefig(output_path, dpi=300, bbox_inches='tight')
+    plt.close()
+    
+    print(f"Gráfico guardado: {output_path}")
+    return output_path
+
+
+# ============================================================================
+# FUNCIONES PARA EL PUNTO 3 - FINE-TUNING
+# ============================================================================
+
+def save_training_history(history, model_name, punto):
+    """
+    Guarda el historial de entrenamiento
+    """
+    ensure_directories(punto)
+    history_file = f"./results/punto{punto}_{model_name}_history.json"
+    
+    with open(history_file, 'w', encoding='utf-8') as f:
+        json.dump(history, f, indent=2, ensure_ascii=False)
+    
+    print(f"Historial guardado en: {history_file}")
+    return history_file
+
+
+def load_training_history(model_name, punto):
+    """
+    Carga el historial de entrenamiento
+    """
+    history_file = f"./results/punto{punto}_{model_name}_history.json"
+    
+    if os.path.exists(history_file):
+        with open(history_file, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    return None
+
+
+def plot_training_history(history, model_name, punto):
+    """
+    Visualiza el historial de entrenamiento
+    """
+    ensure_directories(punto)
+    
+    fig, axes = plt.subplots(2, 2, figsize=(15, 10))
+    
+    epochs = range(1, len(history['train_loss']) + 1)
+    
+    axes[0, 0].plot(epochs, history['train_loss'], 'b-', label='Train Loss')
+    axes[0, 0].plot(epochs, history['eval_loss'], 'r-', label='Eval Loss')
+    axes[0, 0].set_title('Loss')
+    axes[0, 0].set_xlabel('Epoch')
+    axes[0, 0].set_ylabel('Loss')
+    axes[0, 0].legend()
+    axes[0, 0].grid(True)
+    
+    axes[0, 1].plot(epochs, history['eval_accuracy'], 'g-', label='Accuracy')
+    axes[0, 1].set_title('Accuracy')
+    axes[0, 1].set_xlabel('Epoch')
+    axes[0, 1].set_ylabel('Accuracy')
+    axes[0, 1].legend()
+    axes[0, 1].grid(True)
+    
+    axes[1, 0].plot(epochs, history['eval_f1'], 'c-', label='F1 Score')
+    axes[1, 0].set_title('F1 Score')
+    axes[1, 0].set_xlabel('Epoch')
+    axes[1, 0].set_ylabel('F1')
+    axes[1, 0].legend()
+    axes[1, 0].grid(True)
+    
+    axes[1, 1].plot(epochs, history['eval_precision'], 'm-', label='Precision')
+    axes[1, 1].plot(epochs, history['eval_recall'], 'y-', label='Recall')
+    axes[1, 1].set_title('Precision & Recall')
+    axes[1, 1].set_xlabel('Epoch')
+    axes[1, 1].set_ylabel('Score')
+    axes[1, 1].legend()
+    axes[1, 1].grid(True)
+    
+    plt.suptitle(f'Training History - {model_name}', fontsize=16)
+    plt.tight_layout()
+    
+    output_path = f"./output/punto{punto}/{model_name}_training_history.png"
+    plt.savefig(output_path, dpi=300, bbox_inches='tight')
+    plt.close()
+    
+    print(f"Gráfico guardado: {output_path}")
+    return output_path
