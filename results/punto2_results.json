@@ -1,0 +1,413 @@
+[
+  {
+    "model_key": "all-mpnet-base-v2",
+    "model_name": "sentence-transformers/all-mpnet-base-v2",
+    "description": "Modelo basado en MPNet, buen balance entre calidad y velocidad",
+    "embedding_size": 768,
+    "num_chunks": 77,
+    "embeddings_shape": [
+      77,
+      768
+    ],
+    "chunk_size": 500,
+    "chunk_overlap": 50,
+    "timestamp": "2025-11-17T02:32:45.143850",
+    "experiment_name": "punto2_all-mpnet-base-v2"
+  },
+  {
+    "model_key": "all-MiniLM-L6-v2",
+    "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+    "description": "Modelo compacto y rapido, bueno para aplicaciones en tiempo real",
+    "embedding_size": 384,
+    "num_chunks": 77,
+    "embeddings_shape": [
+      77,
+      384
+    ],
+    "chunk_size": 500,
+    "chunk_overlap": 50,
+    "timestamp": "2025-11-17T02:32:45.144195",
+    "experiment_name": "punto2_all-MiniLM-L6-v2"
+  },
+  {
+    "model_key": "paraphrase-multilingual-MiniLM-L12-v2",
+    "model_name": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "description": "Modelo multilingue, soporta 50+ idiomas",
+    "embedding_size": 384,
+    "num_chunks": 77,
+    "embeddings_shape": [
+      77,
+      384
+    ],
+    "chunk_size": 500,
+    "chunk_overlap": 50,
+    "timestamp": "2025-11-17T02:32:45.144659",
+    "experiment_name": "punto2_paraphrase-multilingual-MiniLM-L12-v2"
+  },
+  {
+    "model_key": "bge-base-en",
+    "model_name": "BAAI/bge-base-en",
+    "description": "Modelo de BGE (Beijing Academy of AI), alto rendimiento",
+    "embedding_size": 768,
+    "num_chunks": 77,
+    "embeddings_shape": [
+      77,
+      768
+    ],
+    "chunk_size": 500,
+    "chunk_overlap": 50,
+    "timestamp": "2025-11-17T02:32:45.145026",
+    "experiment_name": "punto2_bge-base-en"
+  },
+  {
+    "timestamp": "2025-11-17T02:33:00.565001",
+    "query_examples": [
+      "acreditacion de programas academicos",
+      "evaluacion de calidad universitaria",
+      "requisitos para acreditacion internacional"
+    ],
+    "num_models": 4,
+    "num_chunks": 77,
+    "chunk_size": 500,
+    "chunk_overlap": 50,
+    "global_metrics": {
+      "all-mpnet-base-v2": {
+        "avg_similarity": 0.642927865187327,
+        "max_similarity": 0.6608108282089233,
+        "consistency": 0.9858428113493078
+      },
+      "all-MiniLM-L6-v2": {
+        "avg_similarity": 0.6155996998151144,
+        "max_similarity": 0.657644788424174,
+        "consistency": 0.9713426245274119
+      },
+      "paraphrase-multilingual-MiniLM-L12-v2": {
+        "avg_similarity": 0.5753509600957235,
+        "max_similarity": 0.6324956218401591,
+        "consistency": 0.9681234685552567
+      },
+      "bge-base-en": {
+        "avg_similarity": 0.8787304838498434,
+        "max_similarity": 0.8955172499020895,
+        "consistency": 0.9900209587798933
+      }
+    },
+    "comparison_data": [
+      {
+        "query": "acreditacion de programas academicos",
+        "all-mpnet-base-v2_avg_sim": 0.726981270313263,
+        "all-mpnet-base-v2_max_sim": 0.750712513923645,
+        "all-mpnet-base-v2_min_sim": 0.7107490301132202,
+        "all-mpnet-base-v2_std_sim": 0.017275520576918606,
+        "all-MiniLM-L6-v2_avg_sim": 0.6636499047279358,
+        "all-MiniLM-L6-v2_max_sim": 0.6929153800010681,
+        "all-MiniLM-L6-v2_min_sim": 0.6366572380065918,
+        "all-MiniLM-L6-v2_std_sim": 0.020996887397857742,
+        "paraphrase-multilingual-MiniLM-L12-v2_avg_sim": 0.6667170763015747,
+        "paraphrase-multilingual-MiniLM-L12-v2_max_sim": 0.7276615500450134,
+        "paraphrase-multilingual-MiniLM-L12-v2_min_sim": 0.6302716135978699,
+        "paraphrase-multilingual-MiniLM-L12-v2_std_sim": 0.03370042451151149,
+        "bge-base-en_avg_sim": 0.8981326580047607,
+        "bge-base-en_max_sim": 0.9341527223587036,
+        "bge-base-en_min_sim": 0.882716178894043,
+        "bge-base-en_std_sim": 0.018650078945902523
+      },
+      {
+        "query": "evaluacion de calidad universitaria",
+        "all-mpnet-base-v2_avg_sim": 0.6794882893562317,
+        "all-mpnet-base-v2_max_sim": 0.6943746209144592,
+        "all-mpnet-base-v2_min_sim": 0.655536949634552,
+        "all-mpnet-base-v2_std_sim": 0.01603372540701453,
+        "all-MiniLM-L6-v2_avg_sim": 0.6118408918380738,
+        "all-MiniLM-L6-v2_max_sim": 0.6277578473091125,
+        "all-MiniLM-L6-v2_min_sim": 0.5897425413131714,
+        "all-MiniLM-L6-v2_std_sim": 0.01309098155161406,
+        "paraphrase-multilingual-MiniLM-L12-v2_avg_sim": 0.6068059921264648,
+        "paraphrase-multilingual-MiniLM-L12-v2_max_sim": 0.6602275371551514,
+        "paraphrase-multilingual-MiniLM-L12-v2_min_sim": 0.5612549781799316,
+        "paraphrase-multilingual-MiniLM-L12-v2_std_sim": 0.033343494018973595,
+        "bge-base-en_avg_sim": 0.8881056308746338,
+        "bge-base-en_max_sim": 0.89534592628479,
+        "bge-base-en_min_sim": 0.8799353837966919,
+        "bge-base-en_std_sim": 0.006000657508278912
+      },
+      {
+        "query": "requisitos para acreditacion internacional",
+        "all-mpnet-base-v2_avg_sim": 0.5223140358924866,
+        "all-mpnet-base-v2_max_sim": 0.5373453497886658,
+        "all-mpnet-base-v2_min_sim": 0.512742280960083,
+        "all-mpnet-base-v2_std_sim": 0.009162319968143276,
+        "all-MiniLM-L6-v2_avg_sim": 0.5713083028793335,
+        "all-MiniLM-L6-v2_max_sim": 0.6522611379623413,
+        "all-MiniLM-L6-v2_min_sim": 0.5150573253631592,
+        "all-MiniLM-L6-v2_std_sim": 0.05188425746829224,
+        "paraphrase-multilingual-MiniLM-L12-v2_avg_sim": 0.4525298118591309,
+        "paraphrase-multilingual-MiniLM-L12-v2_max_sim": 0.5095977783203125,
+        "paraphrase-multilingual-MiniLM-L12-v2_min_sim": 0.43584316968917847,
+        "paraphrase-multilingual-MiniLM-L12-v2_std_sim": 0.028585675803745055,
+        "bge-base-en_avg_sim": 0.8499531626701355,
+        "bge-base-en_max_sim": 0.8570531010627747,
+        "bge-base-en_min_sim": 0.8416095972061157,
+        "bge-base-en_std_sim": 0.005286387206138831
+      }
+    ],
+    "rankings": {
+      "by_avg_similarity": [
+        [
+          "bge-base-en",
+          0.8787304838498434
+        ],
+        [
+          "all-mpnet-base-v2",
+          0.642927865187327
+        ],
+        [
+          "all-MiniLM-L6-v2",
+          0.6155996998151144
+        ],
+        [
+          "paraphrase-multilingual-MiniLM-L12-v2",
+          0.5753509600957235
+        ]
+      ],
+      "by_max_similarity": [
+        [
+          "bge-base-en",
+          0.8955172499020895
+        ],
+        [
+          "all-mpnet-base-v2",
+          0.6608108282089233
+        ],
+        [
+          "all-MiniLM-L6-v2",
+          0.657644788424174
+        ],
+        [
+          "paraphrase-multilingual-MiniLM-L12-v2",
+          0.6324956218401591
+        ]
+      ],
+      "by_consistency": [
+        [
+          "bge-base-en",
+          0.9900209587798933
+        ],
+        [
+          "all-mpnet-base-v2",
+          0.9858428113493078
+        ],
+        [
+          "all-MiniLM-L6-v2",
+          0.9713426245274119
+        ],
+        [
+          "paraphrase-multilingual-MiniLM-L12-v2",
+          0.9681234685552567
+        ]
+      ]
+    },
+    "experiment_name": "punto2_comparison_summary"
+  },
+  {
+    "all-mpnet-base-v2": {
+      "original_dim": 768,
+      "n_components_90": 43,
+      "n_components_95": 1,
+      "variance_pc1": 0.12605252861976624,
+      "variance_pc2": 0.06294652819633484,
+      "variance_2d_total": 0.18899905681610107
+    },
+    "all-MiniLM-L6-v2": {
+      "original_dim": 384,
+      "n_components_90": 44,
+      "n_components_95": 1,
+      "variance_pc1": 0.11527581512928009,
+      "variance_pc2": 0.06014053151011467,
+      "variance_2d_total": 0.17541635036468506
+    },
+    "paraphrase-multilingual-MiniLM-L12-v2": {
+      "original_dim": 384,
+      "n_components_90": 38,
+      "n_components_95": 49,
+      "variance_pc1": 0.10444704443216324,
+      "variance_pc2": 0.08513423800468445,
+      "variance_2d_total": 0.1895812749862671
+    },
+    "bge-base-en": {
+      "original_dim": 768,
+      "n_components_90": 49,
+      "n_components_95": 1,
+      "variance_pc1": 0.06790275871753693,
+      "variance_pc2": 0.06753582507371902,
+      "variance_2d_total": 0.13543859124183655
+    },
+    "timestamp": "2025-11-17T02:33:02.734106",
+    "experiment_name": "punto2_pca_variance_analysis"
+  },
+  {
+    "timestamp": "2025-11-17T02:33:02.791386",
+    "experiment_name": "punto2_final_report",
+    "configuration": {
+      "num_documents": 30,
+      "num_chunks": 77,
+      "chunk_size": 500,
+      "chunk_overlap": 50,
+      "num_models": 4
+    },
+    "models": {
+      "all-mpnet-base-v2": {
+        "name": "sentence-transformers/all-mpnet-base-v2",
+        "embedding_size": 768
+      },
+      "all-MiniLM-L6-v2": {
+        "name": "sentence-transformers/all-MiniLM-L6-v2",
+        "embedding_size": 384
+      },
+      "paraphrase-multilingual-MiniLM-L12-v2": {
+        "name": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+        "embedding_size": 384
+      },
+      "bge-base-en": {
+        "name": "BAAI/bge-base-en",
+        "embedding_size": 768
+      }
+    },
+    "rankings": {
+      "by_avg_similarity": [
+        [
+          "bge-base-en",
+          0.8787304838498434
+        ],
+        [
+          "all-mpnet-base-v2",
+          0.642927865187327
+        ],
+        [
+          "all-MiniLM-L6-v2",
+          0.6155996998151144
+        ],
+        [
+          "paraphrase-multilingual-MiniLM-L12-v2",
+          0.5753509600957235
+        ]
+      ],
+      "by_max_similarity": [
+        [
+          "bge-base-en",
+          0.8955172499020895
+        ],
+        [
+          "all-mpnet-base-v2",
+          0.6608108282089233
+        ],
+        [
+          "all-MiniLM-L6-v2",
+          0.657644788424174
+        ],
+        [
+          "paraphrase-multilingual-MiniLM-L12-v2",
+          0.6324956218401591
+        ]
+      ],
+      "by_consistency": [
+        [
+          "bge-base-en",
+          0.9900209587798933
+        ],
+        [
+          "all-mpnet-base-v2",
+          0.9858428113493078
+        ],
+        [
+          "all-MiniLM-L6-v2",
+          0.9713426245274119
+        ],
+        [
+          "paraphrase-multilingual-MiniLM-L12-v2",
+          0.9681234685552567
+        ]
+      ],
+      "by_pca_variance": [
+        [
+          "paraphrase-multilingual-MiniLM-L12-v2",
+          0.1895812749862671
+        ],
+        [
+          "all-mpnet-base-v2",
+          0.18899905681610107
+        ],
+        [
+          "all-MiniLM-L6-v2",
+          0.17541635036468506
+        ],
+        [
+          "bge-base-en",
+          0.13543859124183655
+        ]
+      ]
+    },
+    "global_metrics": {
+      "all-mpnet-base-v2": {
+        "avg_similarity": 0.642927865187327,
+        "max_similarity": 0.6608108282089233,
+        "consistency": 0.9858428113493078
+      },
+      "all-MiniLM-L6-v2": {
+        "avg_similarity": 0.6155996998151144,
+        "max_similarity": 0.657644788424174,
+        "consistency": 0.9713426245274119
+      },
+      "paraphrase-multilingual-MiniLM-L12-v2": {
+        "avg_similarity": 0.5753509600957235,
+        "max_similarity": 0.6324956218401591,
+        "consistency": 0.9681234685552567
+      },
+      "bge-base-en": {
+        "avg_similarity": 0.8787304838498434,
+        "max_similarity": 0.8955172499020895,
+        "consistency": 0.9900209587798933
+      }
+    },
+    "output_files": {
+      "embeddings_cache": "./input/preprocessed/punto2/",
+      "visualizations": "./output/punto2/",
+      "results": "./results/",
+      "chunks_cache": "./input/preprocessed/punto2/"
+    },
+    "variance_analysis": {
+      "all-mpnet-base-v2": {
+        "original_dim": 768,
+        "n_components_90": 43,
+        "n_components_95": 1,
+        "variance_pc1": 0.12605252861976624,
+        "variance_pc2": 0.06294652819633484,
+        "variance_2d_total": 0.18899905681610107
+      },
+      "all-MiniLM-L6-v2": {
+        "original_dim": 384,
+        "n_components_90": 44,
+        "n_components_95": 1,
+        "variance_pc1": 0.11527581512928009,
+        "variance_pc2": 0.06014053151011467,
+        "variance_2d_total": 0.17541635036468506
+      },
+      "paraphrase-multilingual-MiniLM-L12-v2": {
+        "original_dim": 384,
+        "n_components_90": 38,
+        "n_components_95": 49,
+        "variance_pc1": 0.10444704443216324,
+        "variance_pc2": 0.08513423800468445,
+        "variance_2d_total": 0.1895812749862671
+      },
+      "bge-base-en": {
+        "original_dim": 768,
+        "n_components_90": 49,
+        "n_components_95": 1,
+        "variance_pc1": 0.06790275871753693,
+        "variance_pc2": 0.06753582507371902,
+        "variance_2d_total": 0.13543859124183655
+      }
+    }
+  }
+]
