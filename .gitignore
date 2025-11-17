@@ -210,3 +210,4 @@ __marimo__/
 models
 input
 extra_data
+output/punto3/batch_size_*/checkpoint-*
