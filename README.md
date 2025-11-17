@@ -1,5 +1,12 @@
 # Taller 2 PLN - Embeddings y Fine-tuning
 
+## Enlaces
+
+- **Repositorio GitHub**: [https://github.com/Yenreh/Workshop2PLN](https://github.com/Yenreh/Workshop2PLN)
+- **Modelos en Hugging Face**:
+  - [xlm-roberta-large-tass-sentiment-bs8](https://huggingface.co/Yenreh/xlm-roberta-large-tass-sentiment-bs8)
+  - [xlm-roberta-large-tass-sentiment-bs16](https://huggingface.co/Yenreh/xlm-roberta-large-tass-sentiment-bs16)
+
 ## Requisitos del Sistema
 
 - Python 3.8+
