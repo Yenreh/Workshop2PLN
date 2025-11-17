@@ -1,10 +1,13 @@
 import os
 import json
+import pickle
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.manifold import TSNE
 from sklearn.decomposition import PCA
 from datetime import datetime
+from multiprocessing import Pool, cpu_count
+from functools import partial
 
 
 def ensure_directories(punto):
@@ -206,3 +209,87 @@ def clear_model_from_memory(model):
     del model
     import gc
     gc.collect()
+
+
+def save_preprocessed_sentences(sentences, filename, punto):
+    """
+    Guarda sentencias preprocesadas en formato pickle
+    """
+    ensure_directories(punto)
+    cache_dir = f"./input/preprocessed/punto{punto}"
+    os.makedirs(cache_dir, exist_ok=True)
+    
+    filepath = f"{cache_dir}/{filename}.pkl"
+    with open(filepath, 'wb') as f:
+        pickle.dump(sentences, f, protocol=pickle.HIGHEST_PROTOCOL)
+    
+    print(f"Sentencias guardadas en: {filepath}")
+    print(f"Total: {len(sentences):,} sentencias")
+    return filepath
+
+
+def load_preprocessed_sentences(filename, punto):
+    """
+    Carga sentencias preprocesadas desde pickle
+    """
+    cache_dir = f"./input/preprocessed/punto{punto}"
+    filepath = f"{cache_dir}/{filename}.pkl"
+    
+    if os.path.exists(filepath):
+        print(f"Cargando sentencias desde cache: {filepath}")
+        with open(filepath, 'rb') as f:
+            sentences = pickle.load(f)
+        print(f"Cargadas {len(sentences):,} sentencias")
+        return sentences
+    else:
+        print(f"Cache no encontrado: {filepath}")
+        return None
+
+
+def preprocess_single_text(text_data, stop_words):
+    """
+    Procesa un solo texto (para multiprocesamiento)
+    """
+    import re
+    import string
+    
+    sent, idx = text_data
+    
+    if len(sent) <= 1:
+        return None
+    
+    words = sent.split()
+    words = [w for w in words if not w.isdigit()]
+    words = [re.sub(r'[0-9]', '', w) for w in words]
+    words = [w for w in words if w.lower() not in stop_words]
+    
+    re_punc = re.compile('[%s]' % re.escape(string.punctuation))
+    words = [re_punc.sub('', w) for w in words]
+    words = [re.sub(r"\!|\'|\?|\¿|\¡|\«|\»", "", w) for w in words]
+    words = [w.lower() for w in words if w != '']
+    
+    if len(words) > 0:
+        return words
+    return None
+
+
+def preprocess_text_parallel(dataset_sample, stop_words, n_workers=None):
+    """
+    Preprocesa textos usando multiprocesamiento
+    """
+    if n_workers is None:
+        n_workers = max(1, cpu_count() - 1)
+    
+    print(f"Procesando {len(dataset_sample['text']):,} textos con {n_workers} workers...")
+    
+    texts_with_idx = [(text, idx) for idx, text in enumerate(dataset_sample['text'])]
+    
+    process_func = partial(preprocess_single_text, stop_words=stop_words)
+    
+    with Pool(processes=n_workers) as pool:
+        results = pool.map(process_func, texts_with_idx, chunksize=1000)
+    
+    sentences = [result for result in results if result is not None]
+    
+    print(f"Total de oraciones procesadas: {len(sentences):,}")
+    return sentences

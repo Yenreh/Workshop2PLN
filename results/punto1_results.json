@@ -1,0 +1,863 @@
+[
+  {
+    "model_type": "word2vec",
+    "vector_size": 100,
+    "dataset_name": "500k",
+    "dataset_size": 499895,
+    "vocab_size": 39530,
+    "training_time": 10.761768341064453,
+    "variance_explained": 0.17811764776706696,
+    "model_path": "./models/punto1/word2vec_100d_500k.model",
+    "visualizations": [
+      "./output/punto1/word2vec_100d_500k_tsne.png",
+      "./output/punto1/word2vec_100d_500k_pca.png"
+    ],
+    "similar_words_sample": {
+      "word": "futuro",
+      "similar_words": [
+        {
+          "word": "reto",
+          "similarity": 0.7183639407157898
+        },
+        {
+          "word": "lograr",
+          "similarity": 0.7128687500953674
+        },
+        {
+          "word": "compromiso",
+          "similarity": 0.7013769149780273
+        },
+        {
+          "word": "esfuerzo",
+          "similarity": 0.6961909532546997
+        },
+        {
+          "word": "progreso",
+          "similarity": 0.6940615177154541
+        }
+      ]
+    },
+    "timestamp": "2025-11-16T22:16:30.550130",
+    "experiment_name": "word2vec_100d_500k"
+  },
+  {
+    "model_type": "word2vec",
+    "vector_size": 200,
+    "dataset_name": "500k",
+    "dataset_size": 499895,
+    "vocab_size": 39530,
+    "training_time": 14.144829988479614,
+    "variance_explained": 0.165492445230484,
+    "model_path": "./models/punto1/word2vec_200d_500k.model",
+    "visualizations": [
+      "./output/punto1/word2vec_200d_500k_tsne.png",
+      "./output/punto1/word2vec_200d_500k_pca.png"
+    ],
+    "similar_words_sample": {
+      "word": "futuro",
+      "similar_words": [
+        {
+          "word": "lograr",
+          "similarity": 0.7125177979469299
+        },
+        {
+          "word": "desafío",
+          "similarity": 0.7100582718849182
+        },
+        {
+          "word": "reto",
+          "similarity": 0.7073971033096313
+        },
+        {
+          "word": "compromiso",
+          "similarity": 0.7044398784637451
+        },
+        {
+          "word": "progreso",
+          "similarity": 0.6945264935493469
+        }
+      ]
+    },
+    "timestamp": "2025-11-16T22:17:00.989507",
+    "experiment_name": "word2vec_200d_500k"
+  },
+  {
+    "model_type": "word2vec",
+    "vector_size": 300,
+    "dataset_name": "500k",
+    "dataset_size": 499895,
+    "vocab_size": 39530,
+    "training_time": 16.96812129020691,
+    "variance_explained": 0.16383704543113708,
+    "model_path": "./models/punto1/word2vec_300d_500k.model",
+    "visualizations": [
+      "./output/punto1/word2vec_300d_500k_tsne.png",
+      "./output/punto1/word2vec_300d_500k_pca.png"
+    ],
+    "similar_words_sample": {
+      "word": "futuro",
+      "similar_words": [
+        {
+          "word": "desafío",
+          "similarity": 0.7124307155609131
+        },
+        {
+          "word": "lograr",
+          "similarity": 0.708136260509491
+        },
+        {
+          "word": "reto",
+          "similarity": 0.7060714364051819
+        },
+        {
+          "word": "progreso",
+          "similarity": 0.6950923204421997
+        },
+        {
+          "word": "continuidad",
+          "similarity": 0.694584846496582
+        }
+      ]
+    },
+    "timestamp": "2025-11-16T22:17:33.780824",
+    "experiment_name": "word2vec_300d_500k"
+  },
+  {
+    "model_type": "word2vec",
+    "vector_size": 100,
+    "dataset_name": "500k",
+    "dataset_size": 499895,
+    "vocab_size": 39530,
+    "training_time": 10.927836418151855,
+    "variance_explained": 0.17782801389694214,
+    "model_path": "./models/punto1/word2vec_100d_500k.model",
+    "visualizations": [
+      "./output/punto1/word2vec_100d_500k_tsne.png",
+      "./output/punto1/word2vec_100d_500k_pca.png"
+    ],
+    "similar_words_sample": {
+      "word": "futuro",
+      "similar_words": [
+        {
+          "word": "desafío",
+          "similarity": 0.7409353852272034
+        },
+        {
+          "word": "reto",
+          "similarity": 0.737242579460144
+        },
+        {
+          "word": "progreso",
+          "similarity": 0.7171251177787781
+        },
+        {
+          "word": "lograr",
+          "similarity": 0.7064269185066223
+        },
+        {
+          "word": "estrategia",
+          "similarity": 0.7031509280204773
+        }
+      ]
+    },
+    "timestamp": "2025-11-16T22:21:52.032384",
+    "experiment_name": "word2vec_100d_500k"
+  },
+  {
+    "model_type": "word2vec",
+    "vector_size": 200,
+    "dataset_name": "500k",
+    "dataset_size": 499895,
+    "vocab_size": 39530,
+    "training_time": 14.448140382766724,
+    "variance_explained": 0.16473019123077393,
+    "model_path": "./models/punto1/word2vec_200d_500k.model",
+    "visualizations": [
+      "./output/punto1/word2vec_200d_500k_tsne.png",
+      "./output/punto1/word2vec_200d_500k_pca.png"
+    ],
+    "similar_words_sample": {
+      "word": "futuro",
+      "similar_words": [
+        {
+          "word": "desafío",
+          "similarity": 0.7122954726219177
+        },
+        {
+          "word": "reto",
+          "similarity": 0.7087202072143555
+        },
+        {
+          "word": "compromiso",
+          "similarity": 0.6989909410476685
+        },
+        {
+          "word": "lograr",
+          "similarity": 0.696557343006134
+        },
+        {
+          "word": "logro",
+          "similarity": 0.6853464245796204
+        }
+      ]
+    },
+    "timestamp": "2025-11-16T22:22:09.612011",
+    "experiment_name": "word2vec_200d_500k"
+  },
+  {
+    "model_type": "word2vec",
+    "vector_size": 300,
+    "dataset_name": "500k",
+    "dataset_size": 499895,
+    "vocab_size": 39530,
+    "training_time": 17.347618579864502,
+    "variance_explained": 0.16386061906814575,
+    "model_path": "./models/punto1/word2vec_300d_500k.model",
+    "visualizations": [
+      "./output/punto1/word2vec_300d_500k_tsne.png",
+      "./output/punto1/word2vec_300d_500k_pca.png"
+    ],
+    "similar_words_sample": {
+      "word": "futuro",
+      "similar_words": [
+        {
+          "word": "lograr",
+          "similarity": 0.7236726880073547
+        },
+        {
+          "word": "reto",
+          "similarity": 0.7185418605804443
+        },
+        {
+          "word": "continuidad",
+          "similarity": 0.7146120667457581
+        },
+        {
+          "word": "desafío",
+          "similarity": 0.7124881744384766
+        },
+        {
+          "word": "compromiso",
+          "similarity": 0.7121115326881409
+        }
+      ]
+    },
+    "timestamp": "2025-11-16T22:22:30.098585",
+    "experiment_name": "word2vec_300d_500k"
+  },
+  {
+    "model_type": "word2vec",
+    "vector_size": 100,
+    "dataset_name": "5m",
+    "dataset_size": 4998382,
+    "vocab_size": 161940,
+    "training_time": 135.13529324531555,
+    "variance_explained": 0.16346803307533264,
+    "model_path": "./models/punto1/word2vec_100d_5m.model",
+    "visualizations": [
+      "./output/punto1/word2vec_100d_5m_tsne.png",
+      "./output/punto1/word2vec_100d_5m_pca.png"
+    ],
+    "similar_words_sample": {
+      "word": "futuro",
+      "similar_words": [
+        {
+          "word": "porvenir",
+          "similarity": 0.6982365250587463
+        },
+        {
+          "word": "continuidad",
+          "similarity": 0.6178045272827148
+        },
+        {
+          "word": "futura",
+          "similarity": 0.5847771167755127
+        },
+        {
+          "word": "progreso",
+          "similarity": 0.5764572024345398
+        },
+        {
+          "word": "futuras",
+          "similarity": 0.5746992230415344
+        }
+      ]
+    },
+    "timestamp": "2025-11-16T22:25:00.560513",
+    "experiment_name": "word2vec_100d_5m"
+  },
+  {
+    "model_type": "word2vec",
+    "vector_size": 200,
+    "dataset_name": "5m",
+    "dataset_size": 4998382,
+    "vocab_size": 161940,
+    "training_time": 165.6802716255188,
+    "variance_explained": 0.1388314962387085,
+    "model_path": "./models/punto1/word2vec_200d_5m.model",
+    "visualizations": [
+      "./output/punto1/word2vec_200d_5m_tsne.png",
+      "./output/punto1/word2vec_200d_5m_pca.png"
+    ],
+    "similar_words_sample": {
+      "word": "futuro",
+      "similar_words": [
+        {
+          "word": "porvenir",
+          "similarity": 0.6805480718612671
+        },
+        {
+          "word": "futura",
+          "similarity": 0.567023754119873
+        },
+        {
+          "word": "futuras",
+          "similarity": 0.5258377194404602
+        },
+        {
+          "word": "continuidad",
+          "similarity": 0.5183273553848267
+        },
+        {
+          "word": "futuros",
+          "similarity": 0.5074295997619629
+        }
+      ]
+    },
+    "timestamp": "2025-11-16T22:28:03.598661",
+    "experiment_name": "word2vec_200d_5m"
+  },
+  {
+    "model_type": "word2vec",
+    "vector_size": 300,
+    "dataset_name": "5m",
+    "dataset_size": 4998382,
+    "vocab_size": 161940,
+    "training_time": 200.17663621902466,
+    "variance_explained": 0.12645262479782104,
+    "model_path": "./models/punto1/word2vec_300d_5m.model",
+    "visualizations": [
+      "./output/punto1/word2vec_300d_5m_tsne.png",
+      "./output/punto1/word2vec_300d_5m_pca.png"
+    ],
+    "similar_words_sample": {
+      "word": "futuro",
+      "similar_words": [
+        {
+          "word": "porvenir",
+          "similarity": 0.6722517609596252
+        },
+        {
+          "word": "futura",
+          "similarity": 0.5393992066383362
+        },
+        {
+          "word": "futuras",
+          "similarity": 0.5085027813911438
+        },
+        {
+          "word": "futuros",
+          "similarity": 0.4703643321990967
+        },
+        {
+          "word": "continuidad",
+          "similarity": 0.46014639735221863
+        }
+      ]
+    },
+    "timestamp": "2025-11-16T22:31:41.352556",
+    "experiment_name": "word2vec_300d_5m"
+  },
+  {
+    "model_type": "word2vec",
+    "vector_size": 100,
+    "dataset_name": "10m",
+    "dataset_size": 9996928,
+    "vocab_size": 219143,
+    "training_time": 278.27222895622253,
+    "variance_explained": 0.16982266306877136,
+    "model_path": "./models/punto1/word2vec_100d_10m.model",
+    "visualizations": [
+      "./output/punto1/word2vec_100d_10m_tsne.png",
+      "./output/punto1/word2vec_100d_10m_pca.png"
+    ],
+    "similar_words_sample": {
+      "word": "futuro",
+      "similar_words": [
+        {
+          "word": "porvenir",
+          "similarity": 0.6903330087661743
+        },
+        {
+          "word": "futura",
+          "similarity": 0.612610936164856
+        },
+        {
+          "word": "futuras",
+          "similarity": 0.6055968403816223
+        },
+        {
+          "word": "continuidad",
+          "similarity": 0.5704922080039978
+        },
+        {
+          "word": "futuros",
+          "similarity": 0.5493005514144897
+        }
+      ]
+    },
+    "timestamp": "2025-11-16T22:36:50.015073",
+    "experiment_name": "word2vec_100d_10m"
+  },
+  {
+    "model_type": "word2vec",
+    "vector_size": 200,
+    "dataset_name": "10m",
+    "dataset_size": 9996928,
+    "vocab_size": 219143,
+    "training_time": 370.0372202396393,
+    "variance_explained": 0.14944320917129517,
+    "model_path": "./models/punto1/word2vec_200d_10m.model",
+    "visualizations": [
+      "./output/punto1/word2vec_200d_10m_tsne.png",
+      "./output/punto1/word2vec_200d_10m_pca.png"
+    ],
+    "similar_words_sample": {
+      "word": "futuro",
+      "similar_words": [
+        {
+          "word": "porvenir",
+          "similarity": 0.6845502853393555
+        },
+        {
+          "word": "futura",
+          "similarity": 0.5985851287841797
+        },
+        {
+          "word": "futuras",
+          "similarity": 0.5772072076797485
+        },
+        {
+          "word": "futuros",
+          "similarity": 0.5342456102371216
+        },
+        {
+          "word": "continuidad",
+          "similarity": 0.47190988063812256
+        }
+      ]
+    },
+    "timestamp": "2025-11-16T22:43:33.589874",
+    "experiment_name": "word2vec_200d_10m"
+  },
+  {
+    "model_type": "word2vec",
+    "vector_size": 300,
+    "dataset_name": "10m",
+    "dataset_size": 9996928,
+    "vocab_size": 219143,
+    "training_time": 436.80131816864014,
+    "variance_explained": 0.14233678579330444,
+    "model_path": "./models/punto1/word2vec_300d_10m.model",
+    "visualizations": [
+      "./output/punto1/word2vec_300d_10m_tsne.png",
+      "./output/punto1/word2vec_300d_10m_pca.png"
+    ],
+    "similar_words_sample": {
+      "word": "futuro",
+      "similar_words": [
+        {
+          "word": "porvenir",
+          "similarity": 0.6884502172470093
+        },
+        {
+          "word": "futura",
+          "similarity": 0.5733323693275452
+        },
+        {
+          "word": "futuras",
+          "similarity": 0.5493049621582031
+        },
+        {
+          "word": "futuros",
+          "similarity": 0.498451292514801
+        },
+        {
+          "word": "sostenibilidad",
+          "similarity": 0.41955432295799255
+        }
+      ]
+    },
+    "timestamp": "2025-11-16T22:51:24.952108",
+    "experiment_name": "word2vec_300d_10m"
+  },
+  {
+    "model_type": "fasttext",
+    "vector_size": 100,
+    "dataset_name": "500k",
+    "dataset_size": 499895,
+    "vocab_size": 39530,
+    "training_time": 39.17223048210144,
+    "variance_explained": 0.2252568006515503,
+    "model_path": "./models/punto1/fasttext_100d_500k.model",
+    "visualizations": [
+      "./output/punto1/fasttext_100d_500k_tsne.png",
+      "./output/punto1/fasttext_100d_500k_pca.png"
+    ],
+    "similar_words_sample": {
+      "word": "futuro",
+      "similar_words": [
+        {
+          "word": "logroño",
+          "similarity": 0.7429018020629883
+        },
+        {
+          "word": "logro",
+          "similarity": 0.7255591750144958
+        },
+        {
+          "word": "futura",
+          "similarity": 0.7121950387954712
+        },
+        {
+          "word": "liderazgo",
+          "similarity": 0.698322057723999
+        },
+        {
+          "word": "inverso",
+          "similarity": 0.6670562624931335
+        }
+      ]
+    },
+    "timestamp": "2025-11-16T22:52:12.810367",
+    "experiment_name": "fasttext_100d_500k"
+  },
+  {
+    "model_type": "fasttext",
+    "vector_size": 200,
+    "dataset_name": "500k",
+    "dataset_size": 499895,
+    "vocab_size": 39530,
+    "training_time": 60.63843846321106,
+    "variance_explained": 0.220610573887825,
+    "model_path": "./models/punto1/fasttext_200d_500k.model",
+    "visualizations": [
+      "./output/punto1/fasttext_200d_500k_tsne.png",
+      "./output/punto1/fasttext_200d_500k_pca.png"
+    ],
+    "similar_words_sample": {
+      "word": "futuro",
+      "similar_words": [
+        {
+          "word": "futura",
+          "similarity": 0.7012284398078918
+        },
+        {
+          "word": "logroño",
+          "similarity": 0.6966497302055359
+        },
+        {
+          "word": "liderazgo",
+          "similarity": 0.6708049178123474
+        },
+        {
+          "word": "logro",
+          "similarity": 0.6662488579750061
+        },
+        {
+          "word": "futuros",
+          "similarity": 0.6638533473014832
+        }
+      ]
+    },
+    "timestamp": "2025-11-16T22:53:16.770258",
+    "experiment_name": "fasttext_200d_500k"
+  },
+  {
+    "model_type": "fasttext",
+    "vector_size": 300,
+    "dataset_name": "500k",
+    "dataset_size": 499895,
+    "vocab_size": 39530,
+    "training_time": 76.94942164421082,
+    "variance_explained": 0.22111552953720093,
+    "model_path": "./models/punto1/fasttext_300d_500k.model",
+    "visualizations": [
+      "./output/punto1/fasttext_300d_500k_tsne.png",
+      "./output/punto1/fasttext_300d_500k_pca.png"
+    ],
+    "similar_words_sample": {
+      "word": "futuro",
+      "similar_words": [
+        {
+          "word": "logroño",
+          "similarity": 0.7100516557693481
+        },
+        {
+          "word": "futura",
+          "similarity": 0.6990935206413269
+        },
+        {
+          "word": "logro",
+          "similarity": 0.6906757354736328
+        },
+        {
+          "word": "liderazgo",
+          "similarity": 0.6763350367546082
+        },
+        {
+          "word": "emotivo",
+          "similarity": 0.6600615978240967
+        }
+      ]
+    },
+    "timestamp": "2025-11-16T22:54:37.290988",
+    "experiment_name": "fasttext_300d_500k"
+  },
+  {
+    "model_type": "fasttext",
+    "vector_size": 100,
+    "dataset_name": "5m",
+    "dataset_size": 4998382,
+    "vocab_size": 161940,
+    "training_time": 439.53813338279724,
+    "variance_explained": 0.2300836741924286,
+    "model_path": "./models/punto1/fasttext_100d_5m.model",
+    "visualizations": [
+      "./output/punto1/fasttext_100d_5m_tsne.png",
+      "./output/punto1/fasttext_100d_5m_pca.png"
+    ],
+    "similar_words_sample": {
+      "word": "futuro",
+      "similar_words": [
+        {
+          "word": "futurama",
+          "similarity": 0.7944822907447815
+        },
+        {
+          "word": "futurible",
+          "similarity": 0.7805647850036621
+        },
+        {
+          "word": "futuroscope",
+          "similarity": 0.7655392289161682
+        },
+        {
+          "word": "futura",
+          "similarity": 0.7466830611228943
+        },
+        {
+          "word": "futur",
+          "similarity": 0.7340834140777588
+        }
+      ]
+    },
+    "timestamp": "2025-11-16T23:02:11.103140",
+    "experiment_name": "fasttext_100d_5m"
+  },
+  {
+    "model_type": "fasttext",
+    "vector_size": 200,
+    "dataset_name": "5m",
+    "dataset_size": 4998382,
+    "vocab_size": 161940,
+    "training_time": 678.8132092952728,
+    "variance_explained": 0.20263049006462097,
+    "model_path": "./models/punto1/fasttext_200d_5m.model",
+    "visualizations": [
+      "./output/punto1/fasttext_200d_5m_tsne.png",
+      "./output/punto1/fasttext_200d_5m_pca.png"
+    ],
+    "similar_words_sample": {
+      "word": "futuro",
+      "similar_words": [
+        {
+          "word": "futurama",
+          "similarity": 0.7650834918022156
+        },
+        {
+          "word": "futuroscope",
+          "similarity": 0.7615346312522888
+        },
+        {
+          "word": "futurible",
+          "similarity": 0.7589210271835327
+        },
+        {
+          "word": "futur",
+          "similarity": 0.7549546957015991
+        },
+        {
+          "word": "futura",
+          "similarity": 0.7314719557762146
+        }
+      ]
+    },
+    "timestamp": "2025-11-16T23:13:46.906396",
+    "experiment_name": "fasttext_200d_5m"
+  },
+  {
+    "model_type": "fasttext",
+    "vector_size": 300,
+    "dataset_name": "5m",
+    "dataset_size": 4998382,
+    "vocab_size": 161940,
+    "training_time": 863.7193675041199,
+    "variance_explained": 0.19112491607666016,
+    "model_path": "./models/punto1/fasttext_300d_5m.model",
+    "visualizations": [
+      "./output/punto1/fasttext_300d_5m_tsne.png",
+      "./output/punto1/fasttext_300d_5m_pca.png"
+    ],
+    "similar_words_sample": {
+      "word": "futuro",
+      "similar_words": [
+        {
+          "word": "futur",
+          "similarity": 0.7839921712875366
+        },
+        {
+          "word": "futuroscope",
+          "similarity": 0.7827402949333191
+        },
+        {
+          "word": "futurama",
+          "similarity": 0.7699257135391235
+        },
+        {
+          "word": "futurible",
+          "similarity": 0.7598580718040466
+        },
+        {
+          "word": "futura",
+          "similarity": 0.7498503923416138
+        }
+      ]
+    },
+    "timestamp": "2025-11-16T23:28:28.221693",
+    "experiment_name": "fasttext_300d_5m"
+  },
+  {
+    "model_type": "fasttext",
+    "vector_size": 100,
+    "dataset_name": "10m",
+    "dataset_size": 9996928,
+    "vocab_size": 219143,
+    "training_time": 1017.030839920044,
+    "variance_explained": 0.25867345929145813,
+    "model_path": "./models/punto1/fasttext_100d_10m.model",
+    "visualizations": [
+      "./output/punto1/fasttext_100d_10m_tsne.png",
+      "./output/punto1/fasttext_100d_10m_pca.png"
+    ],
+    "similar_words_sample": {
+      "word": "futuro",
+      "similar_words": [
+        {
+          "word": "futurama",
+          "similarity": 0.794264018535614
+        },
+        {
+          "word": "futurible",
+          "similarity": 0.7813640236854553
+        },
+        {
+          "word": "futur",
+          "similarity": 0.7763628959655762
+        },
+        {
+          "word": "futuroscope",
+          "similarity": 0.7465913891792297
+        },
+        {
+          "word": "futura",
+          "similarity": 0.7433639168739319
+        }
+      ]
+    },
+    "timestamp": "2025-11-16T23:45:59.115706",
+    "experiment_name": "fasttext_100d_10m"
+  },
+  {
+    "model_type": "fasttext",
+    "vector_size": 200,
+    "dataset_name": "10m",
+    "dataset_size": 9996928,
+    "vocab_size": 219143,
+    "training_time": 1600.2387115955353,
+    "variance_explained": 0.23556503653526306,
+    "model_path": "./models/punto1/fasttext_200d_10m.model",
+    "visualizations": [
+      "./output/punto1/fasttext_200d_10m_tsne.png",
+      "./output/punto1/fasttext_200d_10m_pca.png"
+    ],
+    "similar_words_sample": {
+      "word": "futuro",
+      "similar_words": [
+        {
+          "word": "futur",
+          "similarity": 0.7850861549377441
+        },
+        {
+          "word": "futurible",
+          "similarity": 0.7703459858894348
+        },
+        {
+          "word": "futurama",
+          "similarity": 0.7692709565162659
+        },
+        {
+          "word": "futuroscope",
+          "similarity": 0.7433833479881287
+        },
+        {
+          "word": "futura",
+          "similarity": 0.7264255881309509
+        }
+      ]
+    },
+    "timestamp": "2025-11-17T00:13:16.910561",
+    "experiment_name": "fasttext_200d_10m"
+  },
+  {
+    "model_type": "fasttext",
+    "vector_size": 300,
+    "dataset_name": "10m",
+    "dataset_size": 9996928,
+    "vocab_size": 219143,
+    "training_time": 2021.1043021678925,
+    "variance_explained": 0.22463366389274597,
+    "model_path": "./models/punto1/fasttext_300d_10m.model",
+    "visualizations": [
+      "./output/punto1/fasttext_300d_10m_tsne.png",
+      "./output/punto1/fasttext_300d_10m_pca.png"
+    ],
+    "similar_words_sample": {
+      "word": "futuro",
+      "similar_words": [
+        {
+          "word": "futur",
+          "similarity": 0.78351229429245
+        },
+        {
+          "word": "futurible",
+          "similarity": 0.7440654635429382
+        },
+        {
+          "word": "futurama",
+          "similarity": 0.7439205050468445
+        },
+        {
+          "word": "futuroscope",
+          "similarity": 0.7340792417526245
+        },
+        {
+          "word": "futurs",
+          "similarity": 0.7223220467567444
+        }
+      ]
+    },
+    "timestamp": "2025-11-17T00:47:36.184697",
+    "experiment_name": "fasttext_300d_10m"
+  }
+]
