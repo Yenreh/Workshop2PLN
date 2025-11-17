@@ -11,7 +11,7 @@
     ],
     "chunk_size": 500,
     "chunk_overlap": 50,
-    "timestamp": "2025-11-17T02:32:45.143850",
+    "timestamp": "2025-11-17T15:35:23.230908",
     "experiment_name": "punto2_all-mpnet-base-v2"
   },
   {
@@ -26,7 +26,7 @@
     ],
     "chunk_size": 500,
     "chunk_overlap": 50,
-    "timestamp": "2025-11-17T02:32:45.144195",
+    "timestamp": "2025-11-17T15:35:23.231367",
     "experiment_name": "punto2_all-MiniLM-L6-v2"
   },
   {
@@ -41,7 +41,7 @@
     ],
     "chunk_size": 500,
     "chunk_overlap": 50,
-    "timestamp": "2025-11-17T02:32:45.144659",
+    "timestamp": "2025-11-17T15:35:23.231805",
     "experiment_name": "punto2_paraphrase-multilingual-MiniLM-L12-v2"
   },
   {
@@ -56,11 +56,11 @@
     ],
     "chunk_size": 500,
     "chunk_overlap": 50,
-    "timestamp": "2025-11-17T02:32:45.145026",
+    "timestamp": "2025-11-17T15:35:23.232273",
     "experiment_name": "punto2_bge-base-en"
   },
   {
-    "timestamp": "2025-11-17T02:33:00.565001",
+    "timestamp": "2025-11-17T15:35:43.986270",
     "query_examples": [
       "acreditacion de programas academicos",
       "evaluacion de calidad universitaria",
@@ -214,9 +214,9 @@
       "original_dim": 768,
       "n_components_90": 43,
       "n_components_95": 1,
-      "variance_pc1": 0.12605252861976624,
-      "variance_pc2": 0.06294652819633484,
-      "variance_2d_total": 0.18899905681610107
+      "variance_pc1": 0.12605266273021698,
+      "variance_pc2": 0.06294644623994827,
+      "variance_2d_total": 0.18899911642074585
     },
     "all-MiniLM-L6-v2": {
       "original_dim": 384,
@@ -238,15 +238,15 @@
       "original_dim": 768,
       "n_components_90": 49,
       "n_components_95": 1,
-      "variance_pc1": 0.06790275871753693,
-      "variance_pc2": 0.06753582507371902,
-      "variance_2d_total": 0.13543859124183655
+      "variance_pc1": 0.06790272146463394,
+      "variance_pc2": 0.0675358921289444,
+      "variance_2d_total": 0.13543862104415894
     },
-    "timestamp": "2025-11-17T02:33:02.734106",
+    "timestamp": "2025-11-17T15:35:46.334316",
     "experiment_name": "punto2_pca_variance_analysis"
   },
   {
-    "timestamp": "2025-11-17T02:33:02.791386",
+    "timestamp": "2025-11-17T15:35:46.371631",
     "experiment_name": "punto2_final_report",
     "configuration": {
       "num_documents": 30,
@@ -335,7 +335,7 @@
         ],
         [
           "all-mpnet-base-v2",
-          0.18899905681610107
+          0.18899911642074585
         ],
         [
           "all-MiniLM-L6-v2",
@@ -343,7 +343,7 @@
         ],
         [
           "bge-base-en",
-          0.13543859124183655
+          0.13543862104415894
         ]
       ]
     },
@@ -380,9 +380,9 @@
         "original_dim": 768,
         "n_components_90": 43,
         "n_components_95": 1,
-        "variance_pc1": 0.12605252861976624,
-        "variance_pc2": 0.06294652819633484,
-        "variance_2d_total": 0.18899905681610107
+        "variance_pc1": 0.12605266273021698,
+        "variance_pc2": 0.06294644623994827,
+        "variance_2d_total": 0.18899911642074585
       },
       "all-MiniLM-L6-v2": {
         "original_dim": 384,
@@ -404,9 +404,9 @@
         "original_dim": 768,
         "n_components_90": 49,
         "n_components_95": 1,
-        "variance_pc1": 0.06790275871753693,
-        "variance_pc2": 0.06753582507371902,
-        "variance_2d_total": 0.13543859124183655
+        "variance_pc1": 0.06790272146463394,
+        "variance_pc2": 0.0675358921289444,
+        "variance_2d_total": 0.13543862104415894
       }
     }
   }

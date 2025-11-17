@@ -91,7 +91,7 @@ def visualize_embeddings_tsne(model, model_name, punto, num_words=100, perplexit
     
     output_path = f'./output/punto{punto}/{model_name}_tsne.png'
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
-    plt.close()
+    plt.show()
     
     print(f"Gráfico guardado: {output_path}")
     return output_path
@@ -125,7 +125,7 @@ def visualize_embeddings_pca(model, model_name, punto, num_words=100):
     
     output_path = f'./output/punto{punto}/{model_name}_pca.png'
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
-    plt.close()
+    plt.show()
     
     variance_explained = float(sum(pca.explained_variance_ratio_))
     print(f"Gráfico guardado: {output_path}")
@@ -425,7 +425,7 @@ def visualize_pca_comparison(query, search_results, embeddings_by_model, model_k
     
     output_path = f"./output/punto{punto}/{model_key.replace('/', '_')}_pca.png"
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
-    plt.close()
+    plt.show()
     
     print(f"Gráfico guardado: {output_path}")
     return output_path
@@ -461,52 +461,216 @@ def load_training_history(model_name, punto):
     return None
 
 
-def plot_training_history(history, model_name, punto):
+def plot_training_history(history, model_name, punto, output_dir=None):
     """
     Visualiza el historial de entrenamiento
+    Compatible con el formato del MetricsHistoryCallback del punto 3
+    
+    Args:
+        history: Diccionario con el historial (puede tener 'epoch' como lista)
+        model_name: Nombre del modelo para el titulo
+        punto: Numero del punto (para directorio de salida)
+        output_dir: Directorio de salida personalizado (opcional)
     """
     ensure_directories(punto)
     
-    fig, axes = plt.subplots(2, 2, figsize=(15, 10))
+    fig, axes = plt.subplots(2, 2, figsize=(15, 12))
     
-    epochs = range(1, len(history['train_loss']) + 1)
+    # Determinar epochs: puede ser lista (punto 3) o calcular desde train_loss
+    if 'epoch' in history and history['epoch']:
+        epochs = history['epoch']
+        num_epochs = len(epochs)
+    else:
+        num_epochs = len(history.get('eval_loss', history.get('train_loss', [])))
+        epochs = range(1, num_epochs + 1)
     
-    axes[0, 0].plot(epochs, history['train_loss'], 'b-', label='Train Loss')
-    axes[0, 0].plot(epochs, history['eval_loss'], 'r-', label='Eval Loss')
-    axes[0, 0].set_title('Loss')
-    axes[0, 0].set_xlabel('Epoch')
-    axes[0, 0].set_ylabel('Loss')
-    axes[0, 0].legend()
-    axes[0, 0].grid(True)
+    # 1. Loss (train y eval)
+    ax = axes[0, 0]
+    if history.get('train_loss'):
+        # Para punto 3: train_loss tiene mas puntos que eval_loss
+        train_steps = np.linspace(0, num_epochs, len(history['train_loss']))
+        ax.plot(train_steps, history['train_loss'], 'o-', label='Train Loss', alpha=0.6, linewidth=2)
+    if history.get('eval_loss'):
+        ax.plot(epochs, history['eval_loss'], 's-', label='Eval Loss', linewidth=2)
+    ax.set_title('Loss durante el entrenamiento', fontsize=12)
+    ax.set_xlabel('Epoch')
+    ax.set_ylabel('Loss')
+    ax.legend()
+    ax.grid(True, alpha=0.3)
     
-    axes[0, 1].plot(epochs, history['eval_accuracy'], 'g-', label='Accuracy')
-    axes[0, 1].set_title('Accuracy')
-    axes[0, 1].set_xlabel('Epoch')
-    axes[0, 1].set_ylabel('Accuracy')
-    axes[0, 1].legend()
-    axes[0, 1].grid(True)
+    # 2. Accuracy
+    ax = axes[0, 1]
+    if history.get('eval_accuracy'):
+        ax.plot(epochs, history['eval_accuracy'], 's-', label='Accuracy', color='green', linewidth=2)
+    ax.set_title('Accuracy durante el entrenamiento', fontsize=12)
+    ax.set_xlabel('Epoch')
+    ax.set_ylabel('Accuracy')
+    ax.legend()
+    ax.grid(True, alpha=0.3)
     
-    axes[1, 0].plot(epochs, history['eval_f1'], 'c-', label='F1 Score')
-    axes[1, 0].set_title('F1 Score')
-    axes[1, 0].set_xlabel('Epoch')
-    axes[1, 0].set_ylabel('F1')
-    axes[1, 0].legend()
-    axes[1, 0].grid(True)
+    # 3. F1 Score
+    ax = axes[1, 0]
+    if history.get('eval_f1'):
+        ax.plot(epochs, history['eval_f1'], 's-', label='F1 Score', color='red', linewidth=2)
+    ax.set_title('F1 Score durante el entrenamiento', fontsize=12)
+    ax.set_xlabel('Epoch')
+    ax.set_ylabel('F1 Score')
+    ax.legend()
+    ax.grid(True, alpha=0.3)
     
-    axes[1, 1].plot(epochs, history['eval_precision'], 'm-', label='Precision')
-    axes[1, 1].plot(epochs, history['eval_recall'], 'y-', label='Recall')
-    axes[1, 1].set_title('Precision & Recall')
-    axes[1, 1].set_xlabel('Epoch')
-    axes[1, 1].set_ylabel('Score')
-    axes[1, 1].legend()
-    axes[1, 1].grid(True)
+    # 4. Precision y Recall
+    ax = axes[1, 1]
+    if history.get('eval_precision'):
+        ax.plot(epochs, history['eval_precision'], 'o-', label='Precision', linewidth=2)
+    if history.get('eval_recall'):
+        ax.plot(epochs, history['eval_recall'], 's-', label='Recall', linewidth=2)
+    ax.set_title('Precision y Recall durante el entrenamiento', fontsize=12)
+    ax.set_xlabel('Epoch')
+    ax.set_ylabel('Score')
+    ax.legend()
+    ax.grid(True, alpha=0.3)
     
-    plt.suptitle(f'Training History - {model_name}', fontsize=16)
+    plt.suptitle(f'Historial de Entrenamiento - {model_name}', fontsize=16, fontweight='bold')
     plt.tight_layout()
     
-    output_path = f"./output/punto{punto}/{model_name}_training_history.png"
-    plt.savefig(output_path, dpi=300, bbox_inches='tight')
-    plt.close()
+    # Usar output_dir personalizado si se proporciona
+    if output_dir:
+        output_path = f"{output_dir}{model_name}_training_history.png"
+    else:
+        output_path = f"./output/punto{punto}/{model_name}_training_history.png"
     
-    print(f"Gráfico guardado: {output_path}")
+    plt.savefig(output_path, dpi=300, bbox_inches='tight')
+    print(f"Grafico guardado: {output_path}")
+    plt.show()
+    
+    return output_path
+
+
+def create_experiments_comparison(all_experiments, output_dir, results_dir):
+    """
+    Crea un DataFrame comparativo y visualizaciones para experimentos del punto 3
+    
+    Args:
+        all_experiments: Diccionario con todos los experimentos
+        output_dir: Directorio de salida para graficas
+        results_dir: Directorio de salida para CSV
+    
+    Returns:
+        tuple: (comparison_df, best_batch, comparison_plot_path, comparison_csv_path)
+    """
+    import pandas as pd
+    import matplotlib.pyplot as plt
+    import numpy as np
+    
+    # Crear DataFrame con resultados comparativos
+    comparison_data = []
+    for exp_name, exp_results in all_experiments.items():
+        batch_size = exp_results['batch_size']
+        test_metrics = exp_results['test_metrics']
+        train_time = exp_results['training_time']
+        
+        comparison_data.append({
+            'Batch Size': batch_size,
+            'Test Accuracy': test_metrics['test_accuracy'],
+            'Test F1': test_metrics['test_f1'],
+            'Test Precision': test_metrics['test_precision'],
+            'Test Recall': test_metrics['test_recall'],
+            'Test Loss': test_metrics['test_loss'],
+            'Training Time (min)': train_time / 60
+        })
+    
+    comparison_df = pd.DataFrame(comparison_data)
+    comparison_df = comparison_df.sort_values('Batch Size')
+    
+    # Identificar mejor modelo por F1
+    best_idx = comparison_df['Test F1'].idxmax()
+    best_batch = int(comparison_df.loc[best_idx, 'Batch Size'])
+    
+    # Visualizaciones comparativas
+    fig, axes = plt.subplots(2, 2, figsize=(15, 12))
+    
+    # 1. Comparacion de metricas principales
+    ax = axes[0, 0]
+    metrics = ['Test Accuracy', 'Test F1', 'Test Precision', 'Test Recall']
+    x = np.arange(len(comparison_df))
+    width = 0.2
+    for i, metric in enumerate(metrics):
+        ax.bar(x + i*width, comparison_df[metric], width, label=metric.replace('Test ', ''))
+    ax.set_xlabel('Batch Size')
+    ax.set_ylabel('Score')
+    ax.set_title('Comparacion de Metricas por Batch Size')
+    ax.set_xticks(x + width * 1.5)
+    ax.set_xticklabels(comparison_df['Batch Size'])
+    ax.legend()
+    ax.grid(True, alpha=0.3)
+    
+    # 2. Test Loss comparison
+    ax = axes[0, 1]
+    ax.bar(comparison_df['Batch Size'], comparison_df['Test Loss'], color='coral')
+    ax.set_xlabel('Batch Size')
+    ax.set_ylabel('Test Loss')
+    ax.set_title('Test Loss por Batch Size')
+    ax.grid(True, alpha=0.3)
+    
+    # 3. Training Time comparison
+    ax = axes[1, 0]
+    ax.bar(comparison_df['Batch Size'], comparison_df['Training Time (min)'], color='skyblue')
+    ax.set_xlabel('Batch Size')
+    ax.set_ylabel('Tiempo (minutos)')
+    ax.set_title('Tiempo de Entrenamiento por Batch Size')
+    ax.grid(True, alpha=0.3)
+    
+    # 4. Accuracy vs F1
+    ax = axes[1, 1]
+    ax.plot(comparison_df['Batch Size'], comparison_df['Test Accuracy'], 'o-', label='Accuracy', linewidth=2)
+    ax.plot(comparison_df['Batch Size'], comparison_df['Test F1'], 's-', label='F1 Score', linewidth=2)
+    ax.set_xlabel('Batch Size')
+    ax.set_ylabel('Score')
+    ax.set_title('Accuracy vs F1 Score por Batch Size')
+    ax.legend()
+    ax.grid(True, alpha=0.3)
+    
+    plt.tight_layout()
+    comparison_plot_path = f"{output_dir}experiments_comparison.png"
+    plt.savefig(comparison_plot_path, dpi=300, bbox_inches='tight')
+    plt.show()
+    
+    # Guardar comparacion en CSV
+    comparison_csv_path = f"{results_dir}punto3_experiments_comparison.csv"
+    comparison_df.to_csv(comparison_csv_path, index=False)
+    
+    return comparison_df, best_batch, comparison_plot_path, comparison_csv_path
+
+
+def plot_confusion_matrix(confusion_matrix, class_labels, title, output_path):
+    """
+    Visualiza una matriz de confusion
+    
+    Args:
+        confusion_matrix: Matriz de confusion como array numpy o lista
+        class_labels: Lista con nombres de las clases
+        title: Titulo del grafico
+        output_path: Ruta donde guardar el grafico
+    
+    Returns:
+        str: Ruta del archivo guardado
+    """
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+    import numpy as np
+    
+    cm = np.array(confusion_matrix)
+    
+    fig, ax = plt.subplots(figsize=(10, 8))
+    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', 
+                xticklabels=class_labels,
+                yticklabels=class_labels,
+                ax=ax)
+    ax.set_xlabel('Prediccion', fontsize=12)
+    ax.set_ylabel('Real', fontsize=12)
+    ax.set_title(title, fontsize=14, fontweight='bold')
+    plt.tight_layout()
+    plt.savefig(output_path, dpi=300, bbox_inches='tight')
+    plt.show()
+    
     return output_path
