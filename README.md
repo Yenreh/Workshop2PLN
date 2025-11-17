@@ -82,7 +82,7 @@ jupyter notebook Tarea2_Punto3.ipynb
 Fine-tuning de xml-roberta-large para clasificación de sentimientos. Requiere:
 - Token de Hugging Face
 - Dataset de Tweets
-- GPU con mínimo 15GB VRAM
+- GPU
 
 ## Configuración GPU
 
